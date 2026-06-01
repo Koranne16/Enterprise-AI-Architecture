@@ -17,6 +17,7 @@ A primary concern with local containerization is data persistence and disaster r
 2. **Enterprise-Grade Backup:** By utilizing the OneDrive-synced directory for the Docker volumes, the self-hosted AI server maintains automated, continuous cloud backups without requiring secondary, paid cloud-backup services.
 3. **Data Sovereignty:** Proprietary data never leaves the internal network perimeter.
 
+👉 **[Launch the Live Interactive AI FinOps ROI Calculator](https://your-unique-streamlit-url-here.streamlit.app/)**
 ```mermaid
 graph TD
     %% Styling
