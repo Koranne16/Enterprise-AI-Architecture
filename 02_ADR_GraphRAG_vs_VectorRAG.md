@@ -19,7 +19,7 @@ Instead of merely chunking text into vector embeddings, the ingestion pipeline u
 ### Outcome
 GraphRAG traverses the semantic network, understanding that the maintenance ledger belongs to the Tupelo unit, which is an asset of the LLC. This enables the LLM to generate precise, financially accurate answers for complex business operations, shifting the AI from a simple "search engine" to an operational intelligence tool.
 
-
+```mermaid
 graph TD
     %% Styling
     classDef fail fill:#ffe6e6,stroke:#ff0000,stroke-width:2px;
@@ -40,3 +40,4 @@ graph TD
         I --> J[Exact Financial Impact Synthesized]:::success
         G -.-> J
     end
+```
