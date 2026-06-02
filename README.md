@@ -3,7 +3,7 @@
 ## Executive Summary
 Integrating frontier LLMs (Claude 3.5, GPT-4) into legacy enterprise environments exposes proprietary telemetry and Personally Identifiable Information (PII) to massive compliance risks. This repository demonstrates a zero-trust, privacy-first middleware architecture designed to modernize License Plate Recognition (ALPR) infrastructure while strictly enforcing state DOT data privacy mandates.
 
-```
+```mermaid
 flowchart TD
     subgraph "Edge Infrastructure (Legacy)"
         Edge[ALPR Edge Devices]
