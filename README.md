@@ -3,7 +3,31 @@
 ## Executive Summary
 Integrating frontier LLMs (Claude 3.5, GPT-4) into legacy enterprise environments exposes proprietary telemetry and Personally Identifiable Information (PII) to massive compliance risks. This repository demonstrates a zero-trust, privacy-first middleware architecture designed to modernize License Plate Recognition (ALPR) infrastructure while strictly enforcing state DOT data privacy mandates.
 
-*[Insert Mermaid Architecture Diagram Here]*
+flowchart TD
+    subgraph "Edge Infrastructure (Legacy)"
+        Edge[ALPR Edge Devices]
+    end
+
+    subgraph "Zero-Trust AI Gateway (The Digital Bouncer)"
+        Gateway[API Gateway Middleware]
+        Masking[PII Redaction Engine]
+        Router[Semantic Router & FinOps]
+        Cache[(Vector Cache Database)]
+    end
+
+    subgraph "External Cloud Infrastructure"
+        LLM[Frontier Models: Claude 3.5 / GPT-4]
+    end
+
+    Edge -- "Raw JSON + Target PII" --> Gateway
+    Gateway -- "Intercept Payload" --> Masking
+    Masking -- "Strip/Mask License & Location" --> Router
+    
+    Router -- "Check Query Similarity" --> Cache
+    Cache -. "Cache Hit (Bypass API / Save Cost)" .-> Gateway
+    
+    Router -- "Cache Miss (Sanitized Payload)" --> LLM
+    LLM -- "Inference Result" --> Gateway
 
 ## The Problem
 Legacy tolling and ALPR systems rely on outdated OCR technology. While Vision-LLMs offer superior accuracy for degraded plates, transmitting raw edge-device telemetry to external cloud models violates data isolation and privacy regulations. Additionally, unbounded LLM queries create unpredictable compute expenditures.
